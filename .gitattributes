@@ -1,5 +1,6 @@
 # === GENERAL ===
-* text=auto
+# .gitattributes
+* text=auto eol=lf
 
 # === FLUTTER / DART ===
 *.dart               text
