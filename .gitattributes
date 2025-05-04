@@ -1,0 +1,46 @@
+# === GENERAL ===
+* text=auto
+
+# === FLUTTER / DART ===
+*.dart               text
+*.yaml               text
+*.yml                text
+*.json               text
+*.html               text
+*.css                text
+*.js                 text
+*.ts                 text
+*.md                 text
+*.xml                text
+*.gradle             text
+*.pro                text
+*.kt                 text
+*.kts                text
+*.sh                 text eol=lf
+*.bat                text eol=crlf
+
+# === PLATFORM SPECIFIC ===
+# Avoid line-ending changes in generated code
+/lib/generated/**   binary
+/android/app/src/** text
+/ios/**              text
+/web/**              text
+
+# === BINARY FILES ===
+*.png                binary
+*.jpg                binary
+*.jpeg               binary
+*.gif                binary
+*.ico                binary
+*.pdf                binary
+*.mp3                binary
+*.ogg                binary
+*.wav                binary
+*.flac               binary
+*.zip                binary
+*.tar.gz             binary
+*.jar                binary
+*.keystore           binary
+
+# === FLUTTER BUILD OUTPUT ===
+/build/**            binary

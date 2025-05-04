@@ -70,13 +70,6 @@ class MeditationDetailScreenState extends State<MeditationDetailScreen> {
   Future<void> _startMeditation(String assetPath) async {
     final t = S.of(context);
     try {
-      // Mostrar la ruta en un SnackBar
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Cargando el archivo de audio desde: $assetPath")),
-        );
-      }
-
       await _audioPlayer.setAsset(assetPath);
       await _audioPlayer.play();
     } catch (e) {
@@ -88,23 +81,6 @@ class MeditationDetailScreenState extends State<MeditationDetailScreen> {
       }
     }
   }
-
-/*
-  Future<void> _startMeditation() async {
-    final t = S.of(context);
-    try {
-      await _audioPlayer.setUrl(widget.meditation.audioUrl);
-      await _audioPlayer.play();
-    } catch (e) {
-      print('${t.errorAudio}: $e');
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(t.errorAudio)),
-        );
-      }
-    }
-  }
-*/
 
   void _pauseMeditation() {
     _audioPlayer.pause();
