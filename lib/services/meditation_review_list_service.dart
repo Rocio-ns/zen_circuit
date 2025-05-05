@@ -3,24 +3,32 @@ import '../models/meditation_review_model.dart';
 import '../services/meditation_service.dart';
 import '../generated/l10n.dart';
 
+/// Widget que muestra la lista de reseñas de una meditación específica.
+/// Recupera las reseñas desde el servicio y las presenta en un formato visual atractivo.
 class MeditationReviewListService extends StatefulWidget {
+  /// Identificador único de la meditación para obtener sus reseñas.
   final String meditationId;
 
+  /// Constructor para inicializar la pantalla con la meditación correspondiente.
   const MeditationReviewListService({required this.meditationId, super.key});
 
   @override
   MeditationReviewListServiceState createState() => MeditationReviewListServiceState();
 }
 
+/// Estado de [MeditationReviewListService] donde se maneja la lógica de carga de reseñas.
 class MeditationReviewListServiceState extends State<MeditationReviewListService> {
+  /// Futuro que contiene la lista de reseñas de la meditación.
   late Future<List<MeditationReviewModel>> _futureReviews;
 
+  /// Inicializa la carga de reseñas al iniciar la pantalla.
   @override
   void initState() {
     super.initState();
-    _futureReviews = MeditationService().getReviews(widget.meditationId);
+    _futureReviews = MeditationService().getReviewsByMeditation(widget.meditationId);
   }
 
+  /// Construcción de la interfaz de usuario para mostrar las reseñas.
   @override
   Widget build(BuildContext context) {
     final t = S.of(context);
@@ -28,11 +36,12 @@ class MeditationReviewListServiceState extends State<MeditationReviewListService
       future: _futureReviews,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         final reviews = snapshot.data ?? [];
 
+        /// Muestra un mensaje si no hay reseñas disponibles.
         if (reviews.isEmpty) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,21 +55,25 @@ class MeditationReviewListServiceState extends State<MeditationReviewListService
           );
         }
 
+        /// Calcula el promedio de calificaciones de las reseñas.
         final average = reviews.map((r) => r.rating).reduce((a, b) => a + b) / reviews.length;
 
-        
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 30),
+
+            /// Título de la sección de reseñas.
             Text(
               t.reviewsTitle,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
+
+            /// Muestra el promedio de calificaciones con un icono.
             Row(
               children: [
-                Icon(Icons.star, color: Colors.amber),
+                const Icon(Icons.star, color: Colors.amber),
                 const SizedBox(width: 5),
                 Text(
                   "${average.toStringAsFixed(1)} / 5.0",
@@ -69,6 +82,8 @@ class MeditationReviewListServiceState extends State<MeditationReviewListService
               ],
             ),
             const SizedBox(height: 16),
+
+            /// Lista de reseñas mostradas en tarjetas.
             ...reviews.map((r) => Card(
               elevation: 2,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -104,49 +119,11 @@ class MeditationReviewListServiceState extends State<MeditationReviewListService
             )),
           ],
         );
-
-      /*  
-        return ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: reviews.length,
-          itemBuilder: (context, index) {
-            final review = reviews[index];
-            return Card(
-              margin: EdgeInsets.symmetric(vertical: 6),
-              child: Padding(
-                padding: EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: List.generate(5, (i) {
-                        return Icon(
-                          i < review.rating ? Icons.star : Icons.star_border,
-                          color: Colors.amber,
-                          size: 20,
-                        );
-                      }),
-                    ),
-                    SizedBox(height: 4),
-                    if (review.comment.isNotEmpty)
-                      Text(review.comment, style: TextStyle(fontSize: 16)),
-                    SizedBox(height: 4),
-                    Text(
-                      _formatDate(review.timestamp),
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
-      */
       },
     );
   }
 
+  /// Formatea la fecha y hora de la reseña en formato legible.
   String _formatTimestamp(DateTime timestamp) {
     return "${timestamp.day}/${timestamp.month}/${timestamp.year} ${timestamp.hour}:${timestamp.minute.toString().padLeft(2, '0')}";
   }

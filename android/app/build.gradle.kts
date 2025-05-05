@@ -1,4 +1,4 @@
-plugins {
+plugins { 
     id("com.android.application")
     // START: FlutterFire Configuration
     id("com.google.gms.google-services")
@@ -11,7 +11,7 @@ import java.util.Properties
 import java.io.FileInputStream
 
 val keystoreProperties = Properties().apply {
-    load(File(rootDir, "android/key.properties").inputStream())
+    load(FileInputStream(rootDir.resolve("key.properties")))
 }
 
 android {

@@ -1,10 +1,12 @@
 // lib/views/login_view.dart
+
 import 'package:flutter/material.dart';
 import '../controllers/login_controller.dart';
 import 'register_view.dart';
 import 'package:zen_circuit/utils/validators.dart';
 import 'package:zen_circuit/widgets/custom_button.dart';
 
+/// Pantalla de inicio de sesión para la aplicación Zen Circuit.
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -12,16 +14,23 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
+/// Estado de [LoginScreen] donde se maneja la lógica de autenticación.
 class _LoginScreenState extends State<LoginScreen> {
+  bool _passwordVisible = false;
+  /// Controlador que gestiona la lógica del inicio de sesión.
   final LoginController _controller = LoginController();
+
+  /// Clave global para validar el formulario de inicio de sesión.
   final _formKey = GlobalKey<FormState>();
 
+  /// Libera los recursos utilizados por el controlador cuando la pantalla se destruye.
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
+  /// Construye la interfaz de usuario para la pantalla de inicio de sesión.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,22 +55,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                  TextFormField(
-                    controller: _controller.emailController,
-                    decoration: const InputDecoration(labelText: "Correo electrónico"),
-                    keyboardType: TextInputType.emailAddress,
-                    validator: validateEmail,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                const SizedBox(height: 20),
+
+                /// Campo de entrada para el correo electrónico del usuario.
                 TextFormField(
-                  controller: _controller.passwordController,
-                  decoration: const InputDecoration(labelText: "Contraseña"),
-                  obscureText: true,
-                  validator: validatePassword,
+                  controller: _controller.emailController,
+                  decoration: const InputDecoration(labelText: "Correo electrónico"),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: validateEmail,
                   style: const TextStyle(fontSize: 18),
                 ),
+                const SizedBox(height: 20),
+
+                /// Campo de entrada para la contraseña del usuario.
+                TextFormField(
+                  controller: _controller.passwordController,
+                  obscureText: !_passwordVisible,
+                  validator: validatePassword,
+                  style: const TextStyle(fontSize: 18),
+                  decoration: InputDecoration(
+                    labelText: "Contraseña",
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _passwordVisible ? Icons.visibility : Icons.visibility_off,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _passwordVisible = !_passwordVisible;
+                        });
+                      },
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 60),
+
+                /// Botón para enviar el formulario y autenticar al usuario.
                 CustomButton(
                   text: "Iniciar sesión",
                   onPressed: () {
@@ -71,6 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 const SizedBox(height: 20),
+
+                /// Botón de navegación para la pantalla de registro.
                 TextButton(
                   onPressed: () {
                     Navigator.push(

@@ -22,15 +22,29 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addReview": MessageLookupByLibrary.simpleMessage(
-            "You can add a review on this meditation"),
+        "actionIrreversible": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this user? This action is irreversible."),
+        "actionUndone": MessageLookupByLibrary.simpleMessage(
+            "This action cannot be undone."),
+        "addReview": MessageLookupByLibrary.simpleMessage("Add a review"),
+        "adminView":
+            MessageLookupByLibrary.simpleMessage("Administrator panel"),
+        "answer": MessageLookupByLibrary.simpleMessage("Answer:"),
+        "answerReview": MessageLookupByLibrary.simpleMessage("Reply to review"),
+        "answerSaved": MessageLookupByLibrary.simpleMessage("Answer saved."),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "comment": MessageLookupByLibrary.simpleMessage(
             "Comment on the meditation you have done:"),
         "completed": MessageLookupByLibrary.simpleMessage("completed"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
+        "deleteReview": MessageLookupByLibrary.simpleMessage("Delete review?"),
+        "deleteUser": MessageLookupByLibrary.simpleMessage("Delete user?"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "errorAnswer":
+            MessageLookupByLibrary.simpleMessage("Error responding:"),
         "errorAudio":
             MessageLookupByLibrary.simpleMessage("Error playing audio"),
         "errorLoadingReviews":
@@ -52,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Meditations completed:"),
         "meditationSelect":
             MessageLookupByLibrary.simpleMessage("Select a meditation"),
+        "noEmail": MessageLookupByLibrary.simpleMessage("No email"),
         "noReviewsYet": MessageLookupByLibrary.simpleMessage(
             "This meditation has no rating yet"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -64,21 +79,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "pause": MessageLookupByLibrary.simpleMessage("Pause"),
         "play": MessageLookupByLibrary.simpleMessage("Play"),
         "progress": MessageLookupByLibrary.simpleMessage("Check progress"),
+        "reply": MessageLookupByLibrary.simpleMessage("Reply"),
         "review": MessageLookupByLibrary.simpleMessage("Review"),
+        "reviewDeleted":
+            MessageLookupByLibrary.simpleMessage("Review deleted."),
+        "reviewSaved": MessageLookupByLibrary.simpleMessage("Review saved."),
         "reviewsTitle": MessageLookupByLibrary.simpleMessage("Reviews"),
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "selectTheme": MessageLookupByLibrary.simpleMessage("Select Theme"),
-        "send": MessageLookupByLibrary.simpleMessage("Send"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "spanish": MessageLookupByLibrary.simpleMessage("Spanish"),
         "stop": MessageLookupByLibrary.simpleMessage("Stop"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "summary": MessageLookupByLibrary.simpleMessage(
             "This is your activity summary"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "totalProgress":
             MessageLookupByLibrary.simpleMessage("Total progress:"),
+        "undated": MessageLookupByLibrary.simpleMessage("Undated"),
+        "unknownName": MessageLookupByLibrary.simpleMessage("Unknown name"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updatedSummary":
-            MessageLookupByLibrary.simpleMessage("Updated summary")
+            MessageLookupByLibrary.simpleMessage("Updated summary"),
+        "userDeleted": MessageLookupByLibrary.simpleMessage("User deleted."),
+        "userManagement":
+            MessageLookupByLibrary.simpleMessage("User management"),
+        "yourAnswer": MessageLookupByLibrary.simpleMessage("Your answer")
       };
 }

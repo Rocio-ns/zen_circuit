@@ -120,14 +120,77 @@ class SEs extends S {
   String get opinionThanks => 'Gracias por tu opinión';
 
   @override
-  String get addReview => 'Añade una valoración sobre esta meditación';
+  String get addReview => 'Añade una reseña';
 
   @override
   String get review => 'Valoración';
 
   @override
-  String get send => 'Enviar';
+  String get submit => 'Enviar';
 
   @override
   String get comment => 'Comentario sobre la meditación que has realizado:';
+
+  @override
+  String get adminView => 'Panel de administrador';
+
+  @override
+  String get reviewDeleted => 'Reseña eliminada.';
+
+  @override
+  String get reviewSaved => 'Reseña guardada.';
+
+  @override
+  String get errorAnswer => 'Error al responder:';
+
+  @override
+  String get answerReview => 'Responder a reseña';
+
+  @override
+  String get yourAnswer => 'Tu respuesta';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get userDeleted => 'Usuario eliminado.';
+
+  @override
+  String get update => 'Actualizar';
+
+  @override
+  String get undated => 'Sin fecha';
+
+  @override
+  String get answer => 'Respuesta:';
+
+  @override
+  String get answerSaved => 'Respuesta guardada.';
+
+  @override
+  String get reply => 'Responder';
+
+  @override
+  String get delete => 'Eliminar';
+
+  @override
+  String get deleteReview => '¿Eliminar reseña?';
+
+  @override
+  String get actionUndone => 'Esta acción no se puede deshacer.';
+
+  @override
+  String get userManagement => 'Gestión de usuarios';
+
+  @override
+  String get unknownName => 'Nombre desconocido';
+
+  @override
+  String get noEmail => 'Sin email';
+
+  @override
+  String get deleteUser => '¿Eliminar usuario?';
+
+  @override
+  String get actionIrreversible => '¿Seguro que quieres eliminar este usuario? Esta acción es irreversible.';
 }

@@ -420,10 +420,10 @@ class S {
     );
   }
 
-  /// `You can add a review on this meditation`
+  /// `Add a review`
   String get addReview {
     return Intl.message(
-      'You can add a review on this meditation',
+      'Add a review',
       name: 'addReview',
       desc: '',
       args: [],
@@ -440,11 +440,11 @@ class S {
     );
   }
 
-  /// `Send`
-  String get send {
+  /// `Submit`
+  String get submit {
     return Intl.message(
-      'Send',
-      name: 'send',
+      'Submit',
+      name: 'submit',
       desc: '',
       args: [],
     );
@@ -455,6 +455,216 @@ class S {
     return Intl.message(
       'Comment on the meditation you have done:',
       name: 'comment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Administrator panel`
+  String get adminView {
+    return Intl.message(
+      'Administrator panel',
+      name: 'adminView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Review deleted.`
+  String get reviewDeleted {
+    return Intl.message(
+      'Review deleted.',
+      name: 'reviewDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Review saved.`
+  String get reviewSaved {
+    return Intl.message(
+      'Review saved.',
+      name: 'reviewSaved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error responding:`
+  String get errorAnswer {
+    return Intl.message(
+      'Error responding:',
+      name: 'errorAnswer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reply to review`
+  String get answerReview {
+    return Intl.message(
+      'Reply to review',
+      name: 'answerReview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your answer`
+  String get yourAnswer {
+    return Intl.message(
+      'Your answer',
+      name: 'yourAnswer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User deleted.`
+  String get userDeleted {
+    return Intl.message(
+      'User deleted.',
+      name: 'userDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message(
+      'Update',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Undated`
+  String get undated {
+    return Intl.message(
+      'Undated',
+      name: 'undated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Answer:`
+  String get answer {
+    return Intl.message(
+      'Answer:',
+      name: 'answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Answer saved.`
+  String get answerSaved {
+    return Intl.message(
+      'Answer saved.',
+      name: 'answerSaved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reply`
+  String get reply {
+    return Intl.message(
+      'Reply',
+      name: 'reply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete review?`
+  String get deleteReview {
+    return Intl.message(
+      'Delete review?',
+      name: 'deleteReview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This action cannot be undone.`
+  String get actionUndone {
+    return Intl.message(
+      'This action cannot be undone.',
+      name: 'actionUndone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User management`
+  String get userManagement {
+    return Intl.message(
+      'User management',
+      name: 'userManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown name`
+  String get unknownName {
+    return Intl.message(
+      'Unknown name',
+      name: 'unknownName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No email`
+  String get noEmail {
+    return Intl.message(
+      'No email',
+      name: 'noEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete user?`
+  String get deleteUser {
+    return Intl.message(
+      'Delete user?',
+      name: 'deleteUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this user? This action is irreversible.`
+  String get actionIrreversible {
+    return Intl.message(
+      'Are you sure you want to delete this user? This action is irreversible.',
+      name: 'actionIrreversible',
       desc: '',
       args: [],
     );

@@ -320,7 +320,7 @@ abstract class S {
   /// No description provided for @addReview.
   ///
   /// In en, this message translates to:
-  /// **'You can add a review on this meditation'**
+  /// **'Add a review'**
   String get addReview;
 
   /// No description provided for @review.
@@ -329,17 +329,143 @@ abstract class S {
   /// **'Review'**
   String get review;
 
-  /// No description provided for @send.
+  /// No description provided for @submit.
   ///
   /// In en, this message translates to:
-  /// **'Send'**
-  String get send;
+  /// **'Submit'**
+  String get submit;
 
   /// No description provided for @comment.
   ///
   /// In en, this message translates to:
   /// **'Comment on the meditation you have done:'**
   String get comment;
+
+  /// No description provided for @adminView.
+  ///
+  /// In en, this message translates to:
+  /// **'Administrator panel'**
+  String get adminView;
+
+  /// No description provided for @reviewDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Review deleted.'**
+  String get reviewDeleted;
+
+  /// No description provided for @reviewSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Review saved.'**
+  String get reviewSaved;
+
+  /// No description provided for @errorAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Error responding:'**
+  String get errorAnswer;
+
+  /// No description provided for @answerReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply to review'**
+  String get answerReview;
+
+  /// No description provided for @yourAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Your answer'**
+  String get yourAnswer;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @userDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'User deleted.'**
+  String get userDeleted;
+
+  /// No description provided for @update.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// No description provided for @undated.
+  ///
+  /// In en, this message translates to:
+  /// **'Undated'**
+  String get undated;
+
+  /// No description provided for @answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer:'**
+  String get answer;
+
+  /// No description provided for @answerSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer saved.'**
+  String get answerSaved;
+
+  /// No description provided for @reply.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply'**
+  String get reply;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @deleteReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete review?'**
+  String get deleteReview;
+
+  /// No description provided for @actionUndone.
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone.'**
+  String get actionUndone;
+
+  /// No description provided for @userManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'User management'**
+  String get userManagement;
+
+  /// No description provided for @unknownName.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown name'**
+  String get unknownName;
+
+  /// No description provided for @noEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'No email'**
+  String get noEmail;
+
+  /// No description provided for @deleteUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete user?'**
+  String get deleteUser;
+
+  /// No description provided for @actionIrreversible.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this user? This action is irreversible.'**
+  String get actionIrreversible;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

@@ -1,47 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
-class HelpScreen extends StatelessWidget {
-  final List<Map<String, String>> helpTopics = [
-    {
-      'title': 'Cambiar tema',
-      'content': 'Ve a Configuración > Tema y elige entre claro u oscuro.'
-    },
-    {
-      'title': 'Cambiar idioma',
-      'content': 'Ve a Configuración > Idioma y selecciona Español o Inglés.'
-    },
-    {
-      'title': 'Cerrar sesión',
-      'content': 'Haz clic en "Cerrar sesión" al final del menú.'
-    },
-    {
-      'title': 'Eliminar cuenta',
-      'content': 'Selecciona "Eliminar cuenta" y confirma tu decisión.'
-    },
-  ];
+class HelpScreen extends StatefulWidget {
+  @override
+  HelpScreenState createState() => HelpScreenState();
+}
+
+class HelpScreenState extends State<HelpScreen> {
+  String? localPath;
+  bool _isLoading = true;
+  bool _hasLoaded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (!_hasLoaded) {
+      _loadPdf();
+      _hasLoaded = true;
+    }
+  }
+
+  Future<void> _loadPdf() async {
+    try {
+      final locale = Localizations.localeOf(context).languageCode;
+      final fileName = locale == 'es' ? 'help_es.pdf' : 'help_en.pdf';
+      final byteData = await rootBundle.load('assets/help/$fileName');
+
+      final tempDir = await getTemporaryDirectory();
+      final file = File('${tempDir.path}/$fileName');
+      await file.writeAsBytes(byteData.buffer.asUint8List(), flush: true);
+
+      setState(() {
+        localPath = file.path;
+        _isLoading = false;
+      });
+    } catch (e) {
+      print("❌ Error loading PDF: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("$e")),
+        );
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ayuda'),
-        backgroundColor: const Color.fromARGB(255, 109, 43, 118),
-      ),
-      body: ListView.builder(
-        itemCount: helpTopics.length,
-        itemBuilder: (context, index) {
-          final topic = helpTopics[index];
-          return ExpansionTile(
-            title: Text(topic['title']!),
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(topic['content']!),
-              ),
-            ],
-          );
-        },
-      ),
+      appBar: AppBar(title: const Text('Ayuda')),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : localPath == null
+              ? const Center(child: Text("No se pudo cargar el PDF"))
+              : PDFView(
+                  filePath: localPath!,
+                  enableSwipe: true,
+                  swipeHorizontal: false,
+                  autoSpacing: true,
+                  pageFling: true,
+                ),
     );
   }
 }

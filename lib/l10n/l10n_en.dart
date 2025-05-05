@@ -120,14 +120,77 @@ class SEn extends S {
   String get opinionThanks => 'Thanks for your opinion!';
 
   @override
-  String get addReview => 'You can add a review on this meditation';
+  String get addReview => 'Add a review';
 
   @override
   String get review => 'Review';
 
   @override
-  String get send => 'Send';
+  String get submit => 'Submit';
 
   @override
   String get comment => 'Comment on the meditation you have done:';
+
+  @override
+  String get adminView => 'Administrator panel';
+
+  @override
+  String get reviewDeleted => 'Review deleted.';
+
+  @override
+  String get reviewSaved => 'Review saved.';
+
+  @override
+  String get errorAnswer => 'Error responding:';
+
+  @override
+  String get answerReview => 'Reply to review';
+
+  @override
+  String get yourAnswer => 'Your answer';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get userDeleted => 'User deleted.';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get undated => 'Undated';
+
+  @override
+  String get answer => 'Answer:';
+
+  @override
+  String get answerSaved => 'Answer saved.';
+
+  @override
+  String get reply => 'Reply';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get deleteReview => 'Delete review?';
+
+  @override
+  String get actionUndone => 'This action cannot be undone.';
+
+  @override
+  String get userManagement => 'User management';
+
+  @override
+  String get unknownName => 'Unknown name';
+
+  @override
+  String get noEmail => 'No email';
+
+  @override
+  String get deleteUser => 'Delete user?';
+
+  @override
+  String get actionIrreversible => 'Are you sure you want to delete this user? This action is irreversible.';
 }
